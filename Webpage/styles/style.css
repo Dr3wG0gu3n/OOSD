@@ -1,0 +1,319 @@
+/*Pitsini (New), 6 Nov 2013, CPRG 210, Web App Development (HTML/CSS/Javascript), Assignment Day 1-6 */
+
+/* Day 3- assignment ==>  create a style to set <h1> */
+	h1	{
+			font-family:"Courier New", Courier, monospace; 
+			color:white; 
+		}
+	
+/* Day 3- assignment ==>  create a style to set <p> */
+	p 	{
+			font-family:"Trebuchet MS", Helvetica, sans-serif; 
+			color:#6B3A00; 
+			font-weight:bolder;
+			z-index:2; 
+		}
+	
+/* Day 3- assignment ==>  light background color in the input tag */
+	input, textarea {	
+			background-color : #F8D174;
+		}	
+	
+	#heading	{
+			margin-left:auto;
+			margin-right:auto;
+			width:60%;
+			background-color:#FFAB26;
+			padding:15px;
+		}		 
+		
+	#hello {
+			font-size:120%;
+			position:absolute; 
+			top:5px; 
+			width:1000px; 
+			height:70px; 
+			z-index:5;
+		}
+		
+	#contactNW {
+			margin-left:auto;
+			margin-right:auto;
+			width:700px; 
+			height:120px; 
+			background-color:#FFC665;
+			z-index:2;
+		}
+			
+	#contactNE {
+			margin-left:auto;
+			margin-right:auto;
+			width:700px; 
+			height:120px; 
+			background-color:#FFF480;
+			z-index:2;
+		}
+	
+	#contactSW {
+			margin-left:auto;
+			margin-right:auto;
+			width:700px; 
+			height:120px; 
+			background-color:#FFC665;
+			z-index:2;
+		}
+	
+	#contactSE {
+			margin-left:auto;
+			margin-right:auto;
+			width:700px; 
+			height:120px; 
+			background-color:#FFF480;
+			z-index:2;
+		}
+	
+	#regisForm {
+			margin-left:auto;
+			margin-right:auto;
+			width:60%; 
+			background-color:#FFF480;
+			z-index:2;
+			padding:15px;
+		}
+
+	body {							
+			background-image:url('../images/background.jpg');		/*show background image in every page. */
+		}
+
+	div {
+			font-family:"Trebuchet MS", Helvetica, sans-serif; 
+			font-size:100%; 
+			color:white;
+		}
+		
+	#greeting	{
+			position:absolute; 
+			top:0px; 
+			left:200px; 
+			width:1000px; 
+			z-index:6;
+		}
+	
+	#logo {
+			position:absolute; 
+			top:0px; 
+			left:0px; 
+			width:140px; 
+			height:140px; 
+			z-index:5;
+		}
+	
+	#bgOrange {
+			position:absolute; 		
+			top:155px; 
+			left:220px; 
+			width:910px;
+			height:800px; 
+			background-color:white; 
+			z-index:1;
+		}
+	
+	#bgWhite	 {
+			position:absolute; 		
+			top:150px; 
+			left:210px; 
+			width:910px; 
+			height:900px; 
+			background-color:black; 
+			//filter:alpha(opacity=60); 
+			opacity:.9; 
+			z-index:2;
+
+		}
+   
+	#welcomeText	{
+			position:absolute; 
+			top:35px; 
+			left:200px; 
+			width:1000px; 
+			height:70px; 
+			z-index:5;
+		}
+		
+	#menu {
+			position:absolute; 
+			top:270px; 
+			left:0px; 
+			width:140px; 
+			height:400px; 
+			z-index:3;
+		}
+		
+	#menu1 {
+			position:absolute; 
+			top:112px; 
+			left:220px; 
+			width:140px; 
+			height:400px; 
+			z-index:3;
+		}	
+	#menu2 {
+			position:absolute; 
+			top:112px; 
+			left:371px; 
+			width:140px; 
+			height:400px; 
+			z-index:3;
+		}
+	#menu3 {
+			position:absolute; 
+			top:112px; 
+			left:522px; 
+			width:140px; 
+			height:400px; 
+			z-index:3;
+		}
+	#menu4 {
+			position:absolute; 
+			top:112px; 
+			left:673px; 
+			width:140px; 
+			height:400px; 
+			z-index:3;
+		}
+	#menu5 {
+			position:absolute; 
+			top:112px; 
+			left:824px; 
+			width:140px; 
+			height:400px; 
+			z-index:3;
+		}
+	#menu6 {
+			position:absolute; 
+			top:112px; 
+			left:975px; 
+			width:140px; 
+			height:400px; 
+			z-index:3;
+		}
+		
+	#showMePic {
+			position:absolute; 
+			top:155px; 
+			left:225px; 
+			width:910px; 
+			z-index:4;
+		}
+		
+	#showMeDesc  {
+			position:absolute; 
+			top:170px; 
+			left:790px; 
+			width:270px; 
+			color:black; 
+			background-color:white; 
+			filter:alpha(opacity=60); 
+			opacity:.7; 
+			z-index:4; 
+			padding:25px;
+		}
+		
+	#linkbg1 {
+			position:absolute; 		
+			top:150px; 
+			left:220px; 
+			width:910px; 
+			height:325px; 
+			background-color:black; 
+			filter:alpha(opacity=60); 
+			opacity:.9; 
+			z-index:3;
+		}
+			
+	/*#linkbg3 {
+			position:absolute; 
+			top:105px; 
+			left:140px; 
+			width:1209px; 
+			height:527px; 
+			background-color:white; 
+			z-index:2;
+		}
+   
+	#linkbg2 {
+			position:absolute; 
+			top:595px; 
+			left:140px; 
+			width:1209px; 
+			height:32px; 
+			background-color:#A36E27; 
+			z-index:3;
+			}
+   
+	#showMeName {
+			position:absolute; 
+			top:585px; 
+			left:140px; 
+			width:1209px; 
+			height:32px; 
+			z-index:4;
+		}*/
+   
+	#image-0	 {
+			position:absolute; 
+			top:14px; 
+			left:70px; 
+			width:150px; 
+			height:32px; 
+			z-index:4; 
+			text-align:center;
+		}
+		
+	#image-1 {
+			position:absolute; 
+			top:14px; 
+			left:270px; 
+			width:150px; 
+			height:32px; 
+			z-index:4; 
+			text-align:center;
+		}
+		
+	#image-2 {
+			position:absolute; 
+			top:14px; 
+			left:470px; 
+			width:150px; 
+			height:32px; 
+			z-index:4; 
+			text-align:center;
+		}
+	
+	#image-3	{
+			position:absolute; 
+			top:14px; 
+			left:670px; 
+			width:150px; 
+			height:32px; 
+			z-index:4; 
+			text-align:center;
+		}
+	
+	#image-4 {
+			position:absolute; 
+			top:14px; 
+			left:870px; 
+			width:150px; 
+			height:32px; 
+			z-index:4; 
+			text-align:center;
+		}
+   
+	#footage {
+			position:absolute; 
+			top:630px; 
+			left:140px; 
+			width:1209px; 
+			z-index:1;
+		}

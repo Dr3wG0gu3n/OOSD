@@ -1,0 +1,142 @@
+<!-- Pitsini (New), 6 Nov 2013, CPRG 210, Web App Development (HTML/CSS/Javascript), Assignment Day 1-6 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Travel Experts</title>
+	
+	<!-- Day 3- assignment ==>  CSS using for background image and etc. -->
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+	
+	<script type="text/JavaScript">
+	
+		//variable to check if I have postal code checked.
+		var postalchecked = false;		
+		
+		<!-- Day 5 - assignment ==>  this function is for validate all data and checking postal code -->
+		function validateForm(form) {
+		
+			<!-- Day 5 - assignment ==>  validate all data to ensure that all fields have been entered -->
+			if (form.elements[0].value == "") {
+				alert("Please type your name");
+				form.elements[0].focus();
+				return false;
+			}
+			
+			if (!form.elements[1].checked && !form.elements[2].checked) {
+				alert("Please choose you gender");
+				form.elements[1].focus();
+				return false;				
+			}		
+			
+			if (form.elements[3].value == "") {
+				alert("Please type your age");
+				form.elements[3].focus();
+				return false;
+			}
+			
+			if (form.elements[4].value == "") {
+				alert("Please type your Birth Date");
+				form.elements[4].focus();
+				return false;
+			}
+			
+			if (form.elements[5].value == "") {
+				alert("Please type your address");
+				form.elements[5].focus();
+				return false;
+			}
+			
+			if (form.elements[6].value == "" || !checkPostal(form.elements[6].value)) {
+				if (postalchecked == false) {
+					alert('Please check your postal code');
+						postalchecked = false;
+					form.elements[6].focus();				
+					return false;
+				}
+				else {
+					postalchecked = false; 
+					form.elements[6].focus();
+					return false;
+				}
+			} //end of if statement				
+		} //end of function validateForm()
+//========================================================
+		
+		//Day 5 - assignment ==>  checking postal code using regular expression -->
+		function checkPostal(postal) {
+			var regex = new RegExp(/^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i);
+			if (regex.test(postal)) {
+				alert ('Postal code is good!');
+				postalchecked = true;
+				return confirm('Do you really want to submit this form?');
+			}
+			else {				
+				return false;
+			} //end of if statement
+		} //end of function checkPostal()
+//========================================================
+
+   </script>
+</head>
+
+<body>
+	<!-- logo, background -->
+	<div id="logo"><img src="images/logo.png" width="140px" height="170px"></div>
+	<div id="bgWhite"></div>
+	
+	<div id="menu" align="right">
+		<a href ="index.html"><img src="images/home.png" width="135px"></a>
+		<a href ="register.html"><img src="images/register.png" width="135px"></a>
+		<a href ="contact.html"><img src="images/contact.png" width="135px"></a>
+	</div><br>
+	
+	<h1 id="heading">Registration Form</h1>
+	
+	<!-- Day 2 - assignment ==>  form for entering  customer data -->
+	<!-- Day 3- assignment ==>  light background color in  the text boxes is in .css file -->
+	<!-- Day 5- assignment ==>  if data that customer key-in is good, sent it to "bouncer.php" -->
+	<form id="regisForm" name="myform" action="bouncer.php" id="inputBackground">
+		<table border="0">
+			<tr>
+				<td align="right">Name: </td>
+				<td><input type="text" name="name" size="60" maxlength="60"></td>
+			</tr>
+			
+			<tr>
+				<td align="right">Male </td>
+				<td><input type="radio" name="gender" value="male"> 
+					Female <input type="radio" name="gender" value="female"></td>
+			</tr>
+			
+			<tr>
+				<!--It has scoll bar to choose the number (from age 0-130) in Chome but doesn't work in firefox or IE-->
+				<td align="right">Age: </td>			
+				<td><input type="number" name="age" min="0" max="130"></td>
+			</tr>
+			
+			<tr>
+				<td align="right">Birth Date: </td>
+				<td><input type="date" name="birthdate"></td>
+			</tr>
+			
+			<tr>
+				<td align="right">Address: </td>
+				<td><textarea name="address" rows="3" cols="40"></textarea></td>
+			</tr>
+			
+			<tr>
+				<td align="right">Postal code: </td>
+				<td><input type="text" name="postal" maxlength="7"></td>
+			</tr>
+		</table><br>
+<!-- ======================================================================== -->
+
+		<!-- Day 5 - assignment ==>  when click submit buttons it goes to function "validateForm() -->
+		<input type="submit" value="Submit" onClick="return validateForm(this.form);">
+		
+		<!-- Day 4- assignment ==>  Confirmation before resetting -->
+		<input type="reset" value="Clear" onClick="return confirm('Do you really want to reset this?')">
+		
+	</form>
+</body>
+</html>
