@@ -1,0 +1,51 @@
+.tPackageContainer{
+	border:1px solid black;
+	float:left;
+}
+#tPackagePicture1{
+	height:175px;
+	width:175px;
+	background-image:url(images/travelPackagesPictures/image1.jpg);
+	background-size:100%;
+	border:1px solid black;
+}
+#tPackagePicture2{
+	height:175px;
+	width:175px;
+	background-image:url(images/travelPackagesPictures/image2.jpg);
+	background-size:100%;
+	border:1px solid black;
+}
+#tPackagePicture3{
+	height:175px;
+	width:175px;
+	background-image:url(images/travelPackagesPictures/image3.jpg);
+	background-size:100%;
+	border:1px solid black;
+}
+#tPackageDescription{
+	float:left;
+	width:175px;
+	height:70px;	
+}
+
+table{
+	border:1px solid black;
+	width: 450px;
+	height:125px;
+}
+#travelPicture1{
+	height:125px;
+	width:175px;
+	background-image:url(images/travelPackagesPictures/image4.jpg)
+}
+#travelPicture2{
+	height:125px;
+	width:175px;
+	background-image:url(images/travelPackagesPictures/image1.jpg)
+}
+#travelPicture3{
+	height:125px;
+	width:175px;
+	background-image:url(images/travelPackagesPictures/image3.jpg)
+}
