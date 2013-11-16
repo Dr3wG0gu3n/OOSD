@@ -1,0 +1,131 @@
+<!-- Pitsini (New), 6 Nov 2013, CPRG 210, Web App Development (HTML/CSS/Javascript), Assignment Day 1-6 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Travel Experts</title>
+	
+	<!--Day 3 - assignment ==>  link external stylesheet file-->
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<script type='text/javascript'>	
+		//Day 5&6 - assignment ==>  create a single array for containing images, src, name and descriptions.
+		var images = new Array();		
+		images[0] = 
+		{	
+			name: 'Royal Grand Palace',
+			src: 'images/image1.jpg',
+			url: 'http://ca.tourismthailand.org/See-and-Do/Sights-and-Attractions-Detail/The-Grand-Palace--52',
+			description: '<b><u>"Royal Grand Palace, Bangkok"</u></b> is at the top of every visitors "must-see" list.'
+		}
+	
+		images[1] = 
+		{	
+			name: 'Ko Phi Phi',
+			src: 'images/image2.jpg',
+			url: 'http://ca.tourismthailand.org/Where-to-Go/Koh-Phi-Phi',							// I can't break the description down into 2 lines
+			description: '<b><u>"Ko Phi Phi, Krabi"</u></b> is considered to be one of the most naturally beautiful islands in the world.'
+		}
+	
+		images[2] = 
+		{	
+			name: 'Huai Nam Dang',
+			src: 'images/image3.jpg',
+			url: 'http://www.sjonhauser.nl/huai-nam-dang.html',										// I can't break the description down into 2 lines
+			description: '<b><u>"Huai Nam Dang National Park, Chiang Mai"</u></b>	is filled with attractive natural condition and virginal forests provided vital watersheds.'
+		}
+		
+		images[3] = 
+		{	
+			name: 'Thi Lo Su Waterfall',
+			src: 'images/image4.jpg',
+			url: 'http://www.world-of-waterfalls.com/asia-thi-lo-su-waterfall.html',
+			description: '<b><u>"Thi Lo Su Waterfall, Tak"</u></b> is claimed to be the largest and highest waterfall in Thailand.'
+		}
+		
+		images[4] = 
+		{	
+			name: 'Doi Ang Khang',
+			src: 'images/image5.jpg',
+			url: 'http://www.mosaic-collection.com/guide-angkhang/',
+			description: 'Enjoy a cool climate all year round and mountain scenery at <b><u>"Doi Ang Khang, Chiang Mai"</u></b>.'
+		}
+<!-- ======================================================================== -->	
+		var picBucket;
+		var descBucket;
+		var t=0;
+		
+		//Day 5&6 - assignment ==>  when the page loads, it shows images, name and descriptions as long as link to website when click on the images
+		function runArray() 
+		{	picBucket= document.getElementById("showMePic");
+			/*var nameBucket = document.getElementById("showMeName");*/
+			descBucket= document.getElementById("showMeDesc");
+			
+			//Day 6 - assignment ==>  slideshow - show 1 image and description at a time and be able to click on image and goto a website.
+			picBucket.innerHTML += '<a href=' + images[0].url + ' target="_blank"><img src="' + images[0].src + '" /></a>';
+			descBucket.innerHTML += images[0].description;		
+		
+			//Day 6 - assignment ==>  using timer to automatically change the images every 3 seconds.
+			setInterval(function(){myTimer()},3000);
+		
+		} //end of function runArray()	
+<!-- ======================================================================== -->
+		
+		function swapImage(item) 
+		{
+			var itemId = item.id;
+			var index = itemId.substring(6,7);			
+			picBucket.innerHTML = '<a href=' + images[index].url + ' target="_blank"><img src="' + images[index].src + '" /></a>';			
+			descBucket.innerHTML = images[index].description;
+		}  //end of function swapImage()			
+<!-- ======================================================================== -->
+		
+		// Every 3 second the function above is calling "myTimer()" to change the images and discription
+		function myTimer() 
+		{
+			if (t<5) 
+			{
+				picBucket.innerHTML = '<a href=' + images[t].url + ' target="_blank"><img src="' + images[t].src + '" /></a>';
+				descBucket.innerHTML = images[t].description;
+				t++;
+			}
+			else   		// restart to image[0] if it hits maximum of images
+			{
+				t=0;
+				picBucket.innerHTML = '<a href=' + images[0].url + ' target="_blank"><img src="' + images[0].src + '" /></a>';
+				descBucket.innerHTML = images[0].description;
+				t++;
+			}
+			
+		} //end of function myTimer()
+<!-- ======================================================================== -->
+	</script>
+	
+</head>
+
+<!-- run function "runArray()" when is loading -->
+<body onload="runArray()">
+	<!-- Day 1 - assignment ==>  a logo image -->
+	<div id="logo"></div>	
+	
+	<div id="wrap">
+		<header><h1>Welcome to Travel Experts</h1></header>
+			<nav>
+				<ul>
+					<li><a class="active" href="#">Home</a></li>
+					<li><a>Registration</a></li>
+					<li><a>Destination</a></li>
+					<li><a>Package</a></li>
+					<li><a>Contact Us</a></li>
+					<li><a>About Us</a></li>
+				</ul>
+			</nav> 
+				
+			<!-- Day 1 - assignment ==>  Where to show Travel Pictures -->
+			<div id="showMePic">
+				
+			</div>			
+			<div id="showMeDesc"></div>
+		<footer>&copy D.A.M.N. Inc. 2013</footer>
+			
+	</div>
+</body>
+</html>
