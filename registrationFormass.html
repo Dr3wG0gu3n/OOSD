@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<?php
+//The following PHP code was written by Andrew Goguen on Monday, November 18, 2013
+//The Code collects the form data into an Array so we can pass the Array to a 
+//ValidateData method coded in an external PHP file
+include("PHPFunctions.php");
+
+
+$customerDataArray = array();
+$customerDataArray['CustFirstName'] = isset($_GET['txtFirstName']) ? $_GET['txtFirstName'] : "";
+$customerDataArray['CustLastName'] = isset($_GET['LastName']) ? $_GET['LastName'] : "";
+$customerDataArray['CustAddress'] = isset($_GET['Address']) ? $_GET['Address'] : "";
+$customerDataArray['CustCity'] = isset($_GET['Customer City']) ? $_GET['Customer City'] : "";
+$customerDataArray['CustProv'] = isset($_GET['Customer Province']) ? $_GET['Customer Province'] : "";
+$customerDataArray['CustPostal'] = isset($_GET['Postal Address']) ? $_GET['Postal Address'] : "";
+$customerDataArray['CustCountry'] = isset($_GET['custCountry']) ? $_GET['custCountry'] : "";
+$customerDataArray['CustHomePhone'] = isset($_GET['Customer Phone']) ? $_GET['Customer Phone'] : "";
+$customerDataArray['CustBusPhone'] = isset($_GET['Business Phone']) ? $_GET['Business Phone'] : "";
+$customerDataArray['CustEmail'] = isset($_GET['CustomerEmail']) ? $_GET['CustomerEmail'] : "";
+$customerDataArray['AgentId'] = isset($_GET['AgentId']) ? $_GET['AgentId'] : "";
+
+//Here I'll check and validate data if the Submit button is Pressed
+		if(isset($_GET['send'])){
+			ValidateCustomerData($customerDataArray);
+		}
+
+?>
+
+<html>
+<head>
+	<title>Registration Page</title>
+	<script type="text/JavaScript">
+							  function validateForm(form)
+								 {
+								 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+								 
+								 ~~~~~~~~~~~Validate form: Validates the form Entries~~~~~~~~~~~~~~~~~~
+								 
+								 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+								 if (form.elements[1].value == "")
+									{
+									alert("Please enter your first name");
+									form.elements[1].focus();
+									return false;
+									}
+								 if (form.elements[2].value == "")
+									{
+									alert("Please enter your last name.");
+									form.elements[2].focus();
+									return false;
+									}
+								if (form.elements[3].value == "")
+									{
+									alert("Please enter your address");
+									form.elements[3].focus();
+									return false;
+									}
+								if (form.elements[4].value == "")
+									{
+									alert("Please enter your City");
+									form.elements[4].focus();
+									return false;
+									}
+								if (form.elements[5].value == "")
+									{
+									alert("Please enter the province name");
+									form.elements[5].focus();
+									return false;
+									}
+								if (form.elements[6].value == "")
+									{
+									alert("Please enter your Postal Code.");
+									form.elements[6].focus();
+									return false;
+									}
+								if (form.elements[7].value == "")
+									{
+									alert("Please enter Country.");
+									form.elements[7].focus();
+									return false;
+									}
+	
+								if (form.elements[8].value == "")
+									{
+									alert("Please Enter Phone no.");
+									form.elements[8].focus();
+									return false;
+									}
+								if (form.elements[9].value == "")
+									{
+									alert("Please enter Business Phone.");
+									form.elements[9].focus();
+									return false;
+									}
+								if (form.elements[10].value == "")
+									{
+									alert("Please Customer email.");
+									form.elements[10].focus();
+									return false;
+									}
+									return true;
+							}
+		</script>
+		<script language="Javascript">
+
+   function checker(email)
+   {
+     // myRegExp = new RegExp("^[A-Z0-9._%-]+@[A-Z0-9.-]+\.(?:[A-Z]{2}|com|org|net|biz|info|name|aero|biz|info|jobs|museum|name)$","ig");
+	  myRegExp = /^[A-Z0-9._%-]+@[A-Z0-9.-]+\.(?:[A-Z]{2}|com|org|net|biz|info|name|aero|biz|info|jobs|museum|name)$/ig;
+	  matched = myRegExp.test(email);
+	  if (matched)
+	  {
+	     alert("You can now submit");
+	  }
+	  else
+	  {
+	     alert("the email address has errors");
+	  }
+   }
+   </script>
+		<script type="text/Javascript">
+		function isCheckedBox()
+			{
+			alert(form.elements[0].checked);
+			if (!form.elements[0].checked) {
+				alert("You must sign up for promotions");
+				return false;
+				}
+					return true;
+					}
+	</script>
+		<script type="text/Javascript">
+		
+		function validateMail(form)
+								 {
+								 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+								 
+								 ~~~~~~~~~~~Author: Afees Odebode~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+								 
+								 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Validate Email~~~~~~~~~~~~~~~~~~
+								 
+								 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+								 if (form.elements[0].value == "" || form.elements[1].value == "" )
+									{
+									alert("Please enter your Email and confirm it");
+									form.elements[1].focus();
+									return false;
+									}
+								if (!(form.elements[0].value == form.elements[1].value))
+									{
+									alert ("The two email does not match");
+									form.elements[1].focus;
+									return false;
+									}
+									}
+									
+								if ( form.elements[0].value == form.elements[1].value )
+									{
+										checker(form.elements[0].value);
+									}
+							}
+		</script>
+		
+		
+	<style type="text/css">
+	
+		#wrap {
+			width: 600px;
+			margin: auto;
+			border: 1px solid #f00;
+			overflow: hidden;
+			-moz-border-radius: 15px;
+				box-shadow:0 1px 2px black;
+				border-radius:10px;
+				border:solid 1px grey;
+				paddind:5px;
+			
+		}
+	
+		.box {
+			float: right;
+			width: 600px;
+			}
+		
+		#box1 {
+			background: blue;
+			height: 30px;
+			-moz-border-radius: 15px;
+				box-shadow:0 1px 2px black;
+				border-radius:10px;
+				border:solid 1px grey;
+				paddind:5px;
+		
+		}
+		
+		#box2 {
+			background: white;
+			height: 20px;
+		}
+		#box3 {
+				background:blue;
+				height:30px;
+				-moz-border-radius: 15px;
+				box-shadow:0 1px 2px black;
+				border-radius:10px;
+				border:solid 1px grey;
+				paddind:5px;
+				}
+		#box4 {
+				background:white;
+				height: 450px;
+				height: 450px;
+				}
+		#box5 {
+				background: blue;
+				height:30px;
+				-moz-border-radius: 15px;
+				box-shadow:0 1px 2px black;
+				border-radius:10px;
+				border:solid 1px grey;
+				paddind:5px;
+				}
+		#box6 {
+				background: white;
+				height:20px;
+				}
+			
+		label{
+				float: left;
+				width: 120px;
+				font-weight: bold;
+				}
+
+		input{
+				width: 150px;
+				height: 25px;
+				margin-bottom: 5px;
+				-moz-border-radius: 15px;
+				box-shadow:0 1px 2px black;
+				border-radius:10px;
+				border:solid 1px grey;
+				paddind:5px;
+				}
+		br{
+			clear: left;
+		  }
+		
+	</style>
+</head>
+
+<body>
+
+	<div id="wrap">
+		<div id="box1" class="box">
+		<span style="color:white; font-weight:bold"> Become a Member!</span></div>
+		<div id="box2" class="box">
+		</div>
+		<div id="box3" class="box">
+		<span style="color:white; font-weight:bold"> Personal Details</span>
+		</div>
+		<div id="box4" class="box">
+		<form onSubmit= "return validateForm(this);"method="post" action="bounce.htm" name="myform">
+		<label for="Customer Id" >Customer ID</label> 
+        <input name="Customer ID" type="text" maxlength="20" value="" /> <br />
+		<label for="First Name">First Name*</label> 
+        <input name="txtFirstName" type="text" maxlength="20" value="" /> <br />
+		<label for="Last Name" >Last Name*</label> 
+        <input name="LastName" type="text" maxlength="20" value="" /> <br />
+		<label for="CusAddress" >Address*</label> 
+        <input name="Address" type="text" maxlength="20" value="" /> <br />
+		<label for="CustCity" >Customer City*</label> 
+        <input name="Customer City" type="text" maxlength="20" value="" /> <br />
+		<label for="Customer Province" >Province*</label> 
+        <input name="Customer Province" type="text" maxlength="20" value="" /> <br />
+	    <label for="Customer Postal" >Postal Add</label> 
+        <input name="Postal Address" type="text" maxlength="20" value="" /> <br />
+		<label for="CusCountry" >Country*</label>
+		<select name="custCountry">
+		 <option value="USA">USA</option>
+		<option value="Canada">Canada </option>
+		</select> <br /> 
+        <label for="CustHomePhone" >Home Phone</label> 
+        <input name="Customer Phone" type="text" maxlength="20" value="" /> <br />
+		<label for="CustBusinnesPhone" >Bus Phone</label> 
+        <input name="Business Phone" type="text" maxlength="20" value="" /> <br />
+		<label for="CustEmail" >Email</label> 
+        <input name="CustomerEmail" type="text" maxlength="20" value="" /> <br />
+		<label for="Agent ID" >Agent ID</label> 
+        <input name="Agent ID" type="text" maxlength="20" value="" /> <br />
+		<input type="submit" value="submit" name="send">
+		</form>
+	</div>
+	     <div id="box5" class="box">
+		 <form action="">
+		<input type="checkbox" name="submit" value="Send" onClick="return isCheckedBox(this.form); />;
+		<span style="color:white; font-weight:bold">I would like to be kept informed of special promotions and offers </span>
+		</form>
+		</div>
+		<div id="box6" class="box"></div>
+				</div>
+		
+				</form>
+		</div>
+	</body>
+</html>
