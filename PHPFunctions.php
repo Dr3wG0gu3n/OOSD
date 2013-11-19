@@ -35,15 +35,15 @@ function ValidateCustomerData($customerDataArray){
 			echo"Failure, Agency ID is Required";
 			return;
 			}
-		if(!preg_match("/^\d{1,10}$/", $customerDataArray['CustHomePhone']) || $customerDataArray['CustHomePhone'] != ""){
+		if($customerDataArray['CustHomePhone'] != "" || (!preg_match("/^\d{1,10}$/", $customerDataArray['CustHomePhone']))){
 			echo"Failure, Home Phone is InValid";
 			return;
 			}
-		if(!preg_match("/^\d{1,10}$/", $customerDataArray['CustBusPhone'])|| $customerDataArray['CustBusPhone'] != ""){
+		if($customerDataArray['CustBusPhone'] != "" || (!preg_match("/^\d{1,10}$/", $customerDataArray['CustBusPhone']))){
 			echo"Failure, Business Phone is InValid";
 			return;
 			}
-		if(!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/", $customerDataArray['CustEmail'])|| $customerDataArray['CustEmail'] != ""){
+		if($customerDataArray['CustEmail'] != "" || (!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/", $customerDataArray['CustEmail']))){
 			echo"Failure, Email is InValid";
 			return;
 			}
